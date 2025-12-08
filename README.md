@@ -48,6 +48,10 @@ Los modelos generados son:
 │── README.md
 └── venv/ (no subir)
 
+⚠️ **Nota importante:**  
+Los modelos (`.pkl`) y datasets pesados fueron excluidos del repositorio debido al límite de GitHub (máx. 100 MB).  
+Sin embargo, las rutas y scripts están configurados para reproducir el proyecto sin problemas.
+
 ## ▶️ Cómo ejecutar la aplicación
 
 1. Crear entorno virtual:
@@ -63,6 +67,17 @@ pip install -r requirements.txt
 streamlit run app.py
 
 ---
+## ▶️ ¿Cómo ejecutar el proyecto?
+
+1. Entrenar un modelo
+(Se debe contar con el dataset en /data)
+
+python src/train_model.py
+
+2. Realizar predicciones
+(una vez entrenado el modelo)
+
+python src/predict.py
 
 ## 💡 Acerca del proyecto
 
@@ -75,8 +90,33 @@ El objetivo fue crear un sistema predictivo sencillo, rápido y accesible para e
 - Interpretación de resultados
 
 ---
+## 📊 Modelos utilizados
+🔹 ARIMA
 
-## 👩‍💻 Autores
+Modelo estadístico tradicional para series de tiempo.
+Bueno para patrones estacionales y tendencias a largo plazo.
+
+🔹 Random Forest Regressor
+
+Modelo basado en árboles de decisión.
+Predice variables continuas a partir de múltiples características climáticas.
+Tuvo mejor desempeño en predicción multivariable.
+
+
+## 🧪 Evaluación del desempeño
+
+Se usaron las siguientes métricas:
+
+RMSE (Root Mean Squared Error)
+
+MAE (Mean Absolute Error)
+
+MAPE (Mean Absolute Percentage Error)
+
+Los resultados completos están en el Notebook principal dentro de /notebooks.
+
+---
+## 👥 Integrantes del equipo
 
 **Helen Maureira - Francisco Provoste**  
 Estudiantes de Ciencia de Datos  
@@ -88,6 +128,3 @@ Universidad Tecnológica Metropolitana (UTEM)
 ## 📜 Licencia
 
 Proyecto de uso académico.
-
-
-
