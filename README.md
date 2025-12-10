@@ -1,5 +1,3 @@
-pip install -r requirements.txt
-
 # 🌡️ Predicción de Temperatura en Santiago
 ### Proyecto Semestral – Ciencia de Datos / Python + Streamlit + ML
 
