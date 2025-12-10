@@ -1,20 +1,7 @@
-# MODELOS PESADOS
-models/*.pkl
-*.pkl
-
-# DATASETS
-data/*.csv
-*.csv
-
-# NOTEBOOKS
-notebooks/*.ipynb
-*.ipynb
-
 # CACHE Y COSAS NO NECESARIAS
 __pycache__/
 *.pyc
 .vscode/
 .env
 models/
-data/
 notebooks/

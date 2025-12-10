@@ -1,12 +1,14 @@
-# 🌤️ Predicción del clima en Santiago  
+pip install -r requirements.txt
+
+# 🌡️ Predicción de Temperatura en Santiago
 ### Proyecto Semestral – Ciencia de Datos / Python + Streamlit + ML
 
-Este proyecto desarrolla una aplicación interactiva para predecir el tiempo en Santiago de Chile utilizando modelos de *Machine Learning*.
+Este proyecto desarrolla una aplicación interactiva para predecir la temperatura mínima y máxima en Santiago de Chile usando modelos de *Machine Learning* y *Deep Learning*.
 
-La aplicación permite ingresar condiciones climáticas actuales y obtener predicciones en tiempo real mediante dos modelos:
 
-- 🌳 **Random Forest**
-- 📈 **Regresión Lineal**
+La app permite analizar datos históricos, entrenar modelos y realizar predicciones en tiempo real mediante:
+
+- 🔥 **LSTM (Red Neuronal Recurrente)**
 
 ---
 
@@ -14,113 +16,85 @@ La aplicación permite ingresar condiciones climáticas actuales y obtener predi
 
 - **Python 3.12**
 - **Streamlit**
+- **PyTorch**
 - **Scikit-learn**
 - **Pandas / NumPy**
 - **Joblib**
-- **Git / GitHub**
+- **Plotly**
 
 ---
 
 ## 🧠 Modelos entrenados
 
-Los modelos se entrenaron con un dataset histórico del clima de Santiago y se incluyeron estas variables:
+Los modelos se entrenan con datos meteorológicos reales de Santiago (enero-noviembre 2025), usando principalmente:
 
-| Variable | Descripción |
-|---------|-------------|
-| temp | Temperatura (°C) |
-| humedad | Humedad relativa (%) |
-| viento | Velocidad del viento (m/s) |
+| Variable         | Descripción                        |
+|------------------|------------------------------------|
+| tMin24Horas      | Temp. mínima últimas 24 horas (°C) |
+| tMax24Horas      | Temp. máxima últimas 24 horas (°C) |
+| momento          | Fecha y hora                       |
 
-Los modelos generados son:
 
-- `random_forest_model.pkl`
-- `linear_regression_model.pkl`
+Modelo generado:
+
+- `lstm_temp_predictor.pth` (LSTM)
 
 ---
 
 ## 📂 Estructura del proyecto
-📁 proyecto_clima_santiago
+
+📁 proyecto_semestral
 │── app.py
-│── train.py
-│── clima_santiago.csv
-│── random_forest_model.pkl
-│── linear_regression_model.pkl
+│── requirements.txt
 │── README.md
-└── venv/ (no subir)
-
-⚠️ **Nota importante:**  
-Los modelos (`.pkl`) y datasets pesados fueron excluidos del repositorio debido al límite de GitHub (máx. 100 MB).  
-Sin embargo, las rutas y scripts están configurados para reproducir el proyecto sin problemas.
-
-## ▶️ Cómo ejecutar la aplicación
-
-1. Crear entorno virtual:
-python -m venv venv
-
-2. Activarlo:
-venv\Scripts\activate
-
-3. Instalar dependencias:
-pip install -r requirements.txt
-
-4. Ejecutar la app:
-streamlit run app.py
+│── data/
+│   └── *.csv, temperatura_limpia_normalizada.pkl, lstm_temp_predictor.pth
+│── ui/
+│   └── ui_home.py, ui_analitica_web.py, ui_modelo.py, ui_entrenamiento.py, ui_preprocesamiento.py
+│── docs/
+│   └── narrativa.md, instrucciones.md, prompts_ia.md
 
 ---
-## ▶️ ¿Cómo ejecutar el proyecto?
+## ▶️ Flujo del proyecto
 
-1. Entrenar un modelo
-(Se debe contar con el dataset en /data)
-
-python src/train_model.py
-
-2. Realizar predicciones
-(una vez entrenado el modelo)
-
-python src/predict.py
+1. Preprocesar los datos (opcional, si tienes los .csv originales)
+2. Entrenar el modelo LSTM desde la app (sección "Preprocesar y Entrenar")
+3. Analizar los datos y visualizar gráficos (sección "Análisis de datos")
+4. Realizar predicciones de temperatura (sección "Predicción")
 
 ## 💡 Acerca del proyecto
 
-El objetivo fue crear un sistema predictivo sencillo, rápido y accesible para estimar el clima en base a temperaturas registrada en el año 2024, demostrando:
+El objetivo es crear un sistema predictivo accesible y moderno para estimar la temperatura en Santiago, demostrando:
 
-- Procesamiento de datos
+- Procesamiento y limpieza de datos
 - Entrenamiento de modelos ML
 - Integración con Streamlit
-- Despliegue local
+- Visualización interactiva con Plotly
 - Interpretación de resultados
 
 ---
 ## 📊 Modelos utilizados
-🔹 ARIMA
 
-Modelo estadístico tradicional para series de tiempo.
-Bueno para patrones estacionales y tendencias a largo plazo.
 
-🔹 Random Forest Regressor
-
-Modelo basado en árboles de decisión.
-Predice variables continuas a partir de múltiples características climáticas.
-Tuvo mejor desempeño en predicción multivariable.
-
+🔹 LSTM (PyTorch)
+	- Predicción de temperatura mínima y máxima usando series temporales.
 
 ## 🧪 Evaluación del desempeño
 
-Se usaron las siguientes métricas:
+Se usan las siguientes métricas:
 
-RMSE (Root Mean Squared Error)
+- MAE (Mean Absolute Error)
+- MSE (Mean Squared Error)
+- R² (Coeficiente de determinación)
 
-MAE (Mean Absolute Error)
-
-MAPE (Mean Absolute Percentage Error)
-
-Los resultados completos están en el Notebook principal dentro de /notebooks.
+Los resultados se muestran en la app tras el entrenamiento.
 
 ---
 ## 👥 Integrantes del equipo
 
-**Helen Maureira - Francisco Provoste**  
-Estudiantes de Ciencia de Datos  
-Universidad Tecnológica Metropolitana (UTEM)  
+**Helen Maureira - Francisco Provoste**
+Estudiantes de Ciencia de Datos
+Universidad Tecnológica Metropolitana (UTEM)
 2025
 
 ---
