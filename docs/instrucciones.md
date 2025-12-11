@@ -10,5 +10,8 @@
 3. Instalar dependencias:
 	pip install -r requirements.txt
 
-4. Ejecutar la app:
+4. Ejecutar el preprocesamiento:
+	python ui/ui_preprocesamiento.py
+
+5. Ejecutar la app:
 	streamlit run app.py

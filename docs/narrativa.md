@@ -14,6 +14,7 @@ Dataset real (enero-noviembre 2025) con variables:
 - momento (fecha y hora)
 - tMin24Horas (temperatura mínima últimas 24h)
 - tMax24Horas (temperatura máxima últimas 24h)
+- Dataset sacado de DGAC
 
 ## Modelo
 ARIMA (Modelo de series temporales, statsmodels):
