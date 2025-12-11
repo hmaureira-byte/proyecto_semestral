@@ -3,5 +3,16 @@ __pycache__/
 *.pyc
 .vscode/
 .env
+.venv/
 models/
 notebooks/
+# Archivos de modelos ARIMA
+arima_min_model.pkl
+arima_max_model.pkl
+# Archivos temporales y de salida
+*.pkl
+*.csv
+# Archivos de configuración de Streamlit
+.streamlit/
+# Archivos de logs
+*.log

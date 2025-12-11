@@ -16,7 +16,7 @@ import streamlit as st
 from ui.ui_home import main as pantalla_principal
 from ui.ui_analitica_web import main as analisis_datos
 from ui.ui_modelo import main as prediccion
-from ui.ui_entrenamiento import main as entrenar
+from ui.ui_ajuste import main as ajuste
 
 # Configuración de la página
 st.set_page_config(
@@ -31,7 +31,7 @@ st.title("🌦️ Sistema de Predicción de Temperatura en Santiago")
 # Menú lateral
 seccion = st.sidebar.selectbox(
     "Navegación",
-    ["Inicio", "Análisis de datos", "Predicción", "Entrenar"]
+    ["Inicio", "Análisis de datos", "Predicción", "Ajuste de modelo"]
 )
 
 # Navegación
@@ -41,5 +41,5 @@ elif seccion == "Análisis de datos":
     analisis_datos()
 elif seccion == "Predicción":
     prediccion()
-elif seccion == "Entrenar":
-    entrenar()
+elif seccion == "Ajuste de modelo":
+    ajuste()
